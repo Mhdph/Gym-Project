@@ -1,14 +1,17 @@
 import React, { useContext } from "react";
-import { Stack, Typography, Box } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import Icon from "../assets/icons/gym.png";
+import { BodyPartContext, TbodyPartContext } from "../pages/Home";
 
 type Props = {
-  item?: any;
-  bodyPart: string;
-  setBodyPart: React.Dispatch<React.SetStateAction<string>>;
+  item?: string;
 };
 
-const BodyPart = ({ item, setBodyPart, bodyPart }: Props) => {
+const BodyPart = ({ item }: Props) => {
+  const { bodyPart, setBodyPart } = useContext(
+    BodyPartContext
+  ) as TbodyPartContext;
+  if (item === undefined) return <>loading...</>;
   return (
     <Stack
       alignItems="center"
@@ -28,7 +31,12 @@ const BodyPart = ({ item, setBodyPart, bodyPart }: Props) => {
         window.scrollTo({ top: 1800, left: 100, behavior: "smooth" });
       }}
     >
-      <img src={Icon} alt="dumbbell" className="icon" />
+      <img
+        src={Icon}
+        style={{ width: "40px", height: "40px" }}
+        alt="dumbbell"
+        className="icon"
+      />
       <Typography
         fontSize="24px"
         fontWeight="bold"
@@ -40,4 +48,5 @@ const BodyPart = ({ item, setBodyPart, bodyPart }: Props) => {
     </Stack>
   );
 };
+
 export default BodyPart;
