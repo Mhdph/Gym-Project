@@ -13,6 +13,15 @@ export const exerciseOptions = {
     "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
   },
 };
+
+export const videoOptions = {
+  method: "GET",
+  url: "https://youtube-search-and-download.p.rapidapi.com",
+  headers: {
+    "X-RapidAPI-Key": process.env.REACT_APP_RAPID_VIEDO_API_KEY,
+    "X-RapidAPI-Host": "youtube-search-and-download.p.rapidapi.com",
+  },
+};
 export interface Iexercises {
   bodyPart: "string";
   equipment: "string";
